@@ -1,0 +1,41 @@
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+import pandas as pd
+
+# Load the cleaned subway data
+file_path = "data/cleaned_subway_data.csv"
+subway_data = pd.read_csv(file_path)
+
+# Convert Date and Time into a datetime format
+subway_data['Datetime'] = pd.to_datetime(subway_data['Date'] + ' ' + subway_data['Time'])
+
+# Extract hour and create a feature for peak hours
+subway_data['Hour'] = subway_data['Datetime'].dt.hour
+subway_data['Weekend'] = subway_data['Day'].isin(['Saturday', 'Sunday']).astype(int)
+
+# Fill missing values in 'Bound' and 'Line' with 'Unknown'
+subway_data['Bound'].fillna('Unknown', inplace=True)
+subway_data['Line'].fillna('Unknown', inplace=True)
+
+# Encode categorical variables
+label_encoders = {}
+categorical_cols = ['Day', 'Station', 'Code', 'Bound', 'Line']
+
+for col in categorical_cols:
+    le = LabelEncoder()
+    subway_data[col] = le.fit_transform(subway_data[col])
+    label_encoders[col] = le
+
+# Select relevant features
+features = ['Day', 'Station', 'Code', 'Min Gap', 'Bound', 'Line', 'Hour', 'Weekend', 'Latitude', 'Longitude']
+target = 'Min Delay'
+
+# Split data into training and test sets
+X = subway_data[features]
+y = subway_data[target]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Display dataset summary after preprocessing
+X_train.info(), X_train.head()
