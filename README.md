@@ -6,6 +6,7 @@ This project aims to forecast the occurrence, location, and duration of delays w
 
 - [Project Overview](#project-overview)
 - [Data Sources](#data-sources)
+- [Data Visualizations]
 - [Data Cleaning Scripts](#data-cleaning-scripts)
 - [Model Data](#model-data)
 - [Subway Coordinates](#subway-coordinates)
@@ -34,6 +35,9 @@ To ensure data quality, several Python scripts have been developed for cleaning 
 - **cleaning_subway.py**: Cleans and preprocesses raw subway data.
 
 These scripts handle tasks such as removing duplicates, handling missing values, and formatting data consistently.
+## Data Visualizations
+
+The data visualizations are in the Tableau workbook 
 
 ## Model Data
 
