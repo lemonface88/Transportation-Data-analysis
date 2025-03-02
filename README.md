@@ -39,6 +39,7 @@ These scripts handle tasks such as removing duplicates, handling missing values,
 ## Data Visualizations
 
 The data visualizations are in the Tableau workbook 
+The dashboard can be found online in the following link: https://public.tableau.com/app/profile/unurjargal.batsuuri/viz/TTCSubwayDelays_v2024_1/Story1?publish=yes
 
 ## Model Data
 
