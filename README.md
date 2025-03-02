@@ -84,5 +84,3 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
-*Note: This documentation is based on the current structure and contents of the repository. For the most accurate and up-to-date information, please refer to the repository directly.*
