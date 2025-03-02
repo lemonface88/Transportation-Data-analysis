@@ -65,7 +65,7 @@ def train_model(df):
     model.fit(X_train, y_train)
     
     # Save the trained model
-    joblib.dump(model, "subway_delay_model.pkl")
+    joblib.dump(model, "subway_delay_model.pkl") 
     joblib.dump(X.columns, "model_features.pkl")
     
     # Predictions
@@ -106,10 +106,12 @@ def main():
     # Train model and evaluate performance
     model, feature_names = train_model(df)
     
-    # Example prediction
-    sample_input = dict(zip(feature_names, np.zeros(len(feature_names))))  # Dummy input
-    sample_input[["Time"]] = scaler.transform(pd.DataFrame([[12]], columns=["Time"]))  # Example: 12 PM (normalized)
-    predict_delay(sample_input)
+    # # Example prediction
+    # sample_input = dict(zip(feature_names, np.zeros(len(feature_names))))  # Dummy input
+    # feature_names = joblib.load("model_features.pkl")
+    # sample_input = dict(zip(feature_names, np.zeros(len(feature_names))))  # Initialize all features with 0
+    # sample_input["Time"] = scaler.transform(pd.DataFrame([[12] * len(weather_features)], columns=weather_features))[0][0]  # Example: 12 PM (normalized)
+    # predict_delay(sample_input)
 
 if __name__ == "__main__":
     main()
